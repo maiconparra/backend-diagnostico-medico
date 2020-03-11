@@ -1,13 +1,15 @@
 const { Router } = require('express');
-
 //Controllers
-
-const ConhencimentoSintoma = require('./controllers/ConhecimentoSintoma');
+const DevController = require('./controllers/DevController');
+const SintomasController = require('./controllers/SintomasController');
 
 const routes = Router();
 
+routes.get('/devs', DevController.index);
+routes.post('/devs', DevController.store);
 
-routes.post('conhecimento', ConhencimentoSintoma.store);
-routes.get('conhecimento', ConhencimentoSintoma.index);
+routes.get('/sintomas', SintomasController.index);
+routes.post('/sintomas', SintomasController.store);
+
 
 module.exports = routes;
